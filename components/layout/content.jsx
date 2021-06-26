@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 // axios 
-import { AxioslistPokemons,   axiosPokemon } from '../config/axios';
+import { axiosPokemon } from '../../config/axios';
 // redux
 import { useDispatch, useSelector } from 'react-redux'
 // actions
-import { getListPokemonsAction } from '../redux/actions';
+import { getListPokemonsAction } from '../../redux/actions';
 
 const content = () => {
   // dispatch
