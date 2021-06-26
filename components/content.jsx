@@ -1,13 +1,22 @@
 import React, { useEffect } from 'react';
-import axios from 'axios';
-import { listPokemons,   axiosPokemon } from '../config/axios';
-const content = () => {
+// axios 
+import { AxioslistPokemons,   axiosPokemon } from '../config/axios';
+// redux
+import { useDispatch, useSelector } from 'react-redux'
+// actions
+import { getListPokemonsAction } from '../redux/actions';
 
+const content = () => {
+  // dispatch
+  const dispatch = useDispatch();
+  const getPokemons = async () => {
+    dispatch( getListPokemonsAction() );
+  }
+  
   useEffect( async () => {
     let pokemon = "ivysaur"
     try {
-      let response =await listPokemons.get( 'pokemon/?limit=151' );
-      console.log( 'response : ', response );
+      getPokemons();
        let response0 =await axiosPokemon.get( `/${ pokemon }` );
        console.log( 'response0 : ', response0 );
        
@@ -15,6 +24,7 @@ const content = () => {
       console.log( 'error : ', error );
       
     }
+
   }, []);
 
     

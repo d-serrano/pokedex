@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // pokemons list
-const listPokemons = axios.create({
+const AxioslistPokemons = axios.create({
   baseURL: 'https://pokeapi.co/api/v2/',
   headers :  { 'Content-Type': 'application/json' }
 });
@@ -13,6 +13,6 @@ const axiosPokemon = axios.create({
 });
 
 export {
-  listPokemons,
+  AxioslistPokemons,
   axiosPokemon
 } 
