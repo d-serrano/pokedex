@@ -2,17 +2,21 @@ import React, { useEffect, useState } from 'react';
 // axios 
 import { axiosPokemon } from '../../config/axios';
 // redux
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
 // actions
-import { getListPokemonsAction } from '../../redux/actions';
+import { getListPokemonsAction, setScreen, simpleAction } from '../../redux/actions/pokemonActions';
 // componets
 import List from '../screens/list';
 import Table from '../screens/table';
 import Gallery from '../screens/gallery';
 
 const content = () => {
-  const [ screen, setScreen ] = useState('list');
-
+   // redux
+   const dispatch = useDispatch();
+   const screen = useSelector( state =>state.screenReducer.screen );
+   console.log(' screen : ', screen )
+  // const [ screen, setScreen ] = useState('list');
+  //const cargando  = useSelector( state => state.productos.loading ); 
   useEffect( async () => {
     let pokemon = "ivysaur"
     try {
@@ -27,15 +31,14 @@ const content = () => {
     
   }, []);
   
-  // dispatch
-  const dispatch = useDispatch();
+ 
   // get Pokemons from APi
   const getPokemons = async () => {
     dispatch( getListPokemonsAction() );
   }
   //
   const setNewScreen = ( newScreen ) => {
-    setScreen( newScreen );
+    dispatch( setScreen( newScreen ) );
   }
   return (
     <div>

@@ -17,8 +17,8 @@ export default function pokemon( { pokemon } ) {
       <p>{ description }</p>
       <div className = {styles.types}>
         {
-          types.map( type => (
-            <h4>{ type }</h4>
+          types.map( ( type, index ) => (
+            <h4 key = { index }>{ type }</h4>
           ) )
         }
       </div>

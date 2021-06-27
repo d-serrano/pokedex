@@ -5,18 +5,9 @@ import rootReducer from './reducers';
 import { composeWithDevTools } from 'redux-devtools-extension'
 import thunk from 'redux-thunk'
 
-if (typeof window !== "undefined") {
-}
-
-const preLoadState = {
-  pokemons : [],
-    pokemon: {},
-    loadingPokemons : false,
-		loadingPokemons: false
-}
 // middlewares - compose withd devtool + thunk for async behaviour
 const composedEnhancer = composeWithDevTools( applyMiddleware( thunk ) );
 //store
-const store = createStore( rootReducer, preLoadState, composedEnhancer);
+const store = createStore( rootReducer, composedEnhancer);
 
 export default store;
