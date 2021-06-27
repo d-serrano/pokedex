@@ -2,6 +2,7 @@ import {
   SET_SCREEN
 }  from '../types';
 
+
 //******************************
 //**        Set Screen        **
 //******************************
@@ -12,6 +13,7 @@ export const setScreen = ( newScreen ) =>{
      dispatch ( setScreenAction( newScreen ) );
    }
 }
+
 
 export const setScreenAction = newScreen => ({
   type: SET_SCREEN,

@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // pokemons list
 const AxioslistPokemons = axios.create({
-  baseURL: 'https://pokeapi.co/api/v2/',
+  baseURL: 'https://app.pokemon-api.xyz/pokemon',
   headers :  { 'Content-Type': 'application/json' }
 });
 

@@ -10,14 +10,13 @@ const initialState = {
     pokemons : [],
     pokemon: {},
     loadingPokemons : false,
-		loadingPokemons: false,
+		loadingPokemon: false,
     listError: null,
     singlePokemonError :null,
     screen : 'table'
 }
 
 const pokemoReducer =  ( state = initialState, action) =>{
-  console.log('REDUCER')
   const { type, payload } = action;
   switch ( type ) {
     case GET_LIST_POKEMON:
@@ -29,9 +28,26 @@ const pokemoReducer =  ( state = initialState, action) =>{
       return{
         ...state,
         loadingPokemons : false,
-        pokemons : payload.pokemonsList
+        pokemons : payload
       }
     case GET_LIST_POKEMON_ERROR:
+      return{
+        ...state,
+        listError : error
+      }
+    case GET_POKEMON:
+      return{
+        ...state,
+        pokemon : newPokemon
+      }
+    case GET_POKEMON_SUCCES:
+      let newPokemon = state.pokemons.find( element => element.id === payload )
+      console.log( 'nuevoPke', newPokemon)
+      return{
+        ...state,
+        pokemon : newPokemon
+      }
+    case GET_POKEMON_ERROR:
       return{
         ...state,
         listError : error

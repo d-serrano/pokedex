@@ -6,8 +6,7 @@ import {
   GET_LIST_POKEMON_ERROR,
   GET_POKEMON,
   GET_POKEMON_SUCCES,
-  GET_POKEMON_ERROR,
-  SET_SCREEN
+  GET_POKEMON_ERROR
 }  from '../types';
 
 //******************************
@@ -17,12 +16,12 @@ export function getListPokemonsAction () {
  return async dispatch => {
    dispatch( getListPokemons() );
    try {
-     let response =await AxioslistPokemons.get( 'pokemon/?limit=151' );
-     console.log( 'response desde action: ', response );
-     //dispatch( getListPokemonsSucces( response ) );
+     let response =await AxioslistPokemons.get( '/all' );
+     let pokemonList = response.data.slice(0,151);
+     dispatch( getListPokemonsSucces( pokemonList ) );
    } catch (error) {
      console.log( 'error : ', error );
-     //dispatch( getListPokemonsError( error ) );
+     dispatch( getListPokemonsError( error ) );
    }
  }
 }
@@ -43,21 +42,28 @@ export function getListPokemonsAction () {
    payload : error
  })
 
-
 //******************************
-//**        Set Screen        **
+//**    Get single Pokemon   **
 //******************************
-// set screen
-export const setScreen = ( newScreen ) =>{
-  console.log('screen', newScreen)
-  return ( dispatch )  => {
-     dispatch ( setScreenAction( newScreen ) );
-   }
-}
+export function getsinglePokemon ( idPokemon ) {
 
+  return async dispatch => {
+    //dispatch( getPkemon() );
+    dispatch ( getsinglePokemonSucces( idPokemon ) );
+  }
+ }
+ 
+  //getListPokemons
 
-export const setScreenAction = newScreen => ({
-  type: SET_SCREEN,
-  payload : newScreen
-}); 
-  
+  // getListPokemons_succes
+  const getsinglePokemonSucces= ( idPokemon ) => ({
+    type: GET_POKEMON_SUCCES,
+    payload : idPokemon
+  })
+  // getListPokemons_error
+  const getsinglePokemonError = (error ) => ({
+    type: GET_POKEMON_ERROR,
+    payload : error
+  })
+ 
+ 
