@@ -3,15 +3,22 @@ import React, { useEffect } from 'react'
 import styles from '../../styles/pokemon.module.scss'
 //Material UI
 import { Card, Container } from '@material-ui/core';
+//
+import Image  from 'next/image'
 export default function pokemon({ focusPokemon }) {
 
 
  const { name, description, hires, gender, type } = focusPokemon
- const { english } = name? name : '';
+ const { english } = name ;
 
   return (
     <div className = { styles.pokemon } >
-        <img src={ hires } alt="pokemon" />
+        <Image
+          src={ hires } 
+          alt="pokemon" 
+          width = { 200 }
+          height = { 200 }
+         />
         <h3>{ english }</h3>
         <p>{ description }</p>
         <div className = {styles.types}>

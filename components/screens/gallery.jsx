@@ -1,5 +1,5 @@
 import React from 'react'
-//
+import Image  from 'next/image'
 import { 
   Card , 
   CardContent, 
@@ -43,7 +43,12 @@ const PokemonCard = ({ pokemon, getPokemon } ) => {
     <Grid container xs ={ 3 } className = {styles.card} >
       <Paper>
         <Card  onMouseOver= { () => getPokemon( id ) }  >
-        <img src={ thumbnail } alt="pokemon" />
+        <Image 
+          src={ thumbnail }
+          alt="pokemon" 
+          width = { 100 }
+          height = { 100 }
+        />
           <CardContent className = 'content'>
             <h3> {english} </h3>
               <p>{ species }</p>
