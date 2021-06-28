@@ -42,7 +42,6 @@ const pokemoReducer =  ( state = initialState, action) =>{
       }
     case GET_POKEMON_SUCCES:
       let newPokemon = state.pokemons.find( element => element.id === payload )
-      console.log( 'nuevoPke', newPokemon)
       return{
         ...state,
         pokemon : newPokemon

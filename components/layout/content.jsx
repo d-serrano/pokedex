@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-// axios 
-import { axiosPokemon } from '../../config/axios';
 // redux
 import { useDispatch, useSelector } from 'react-redux';
 // actions
@@ -10,6 +8,7 @@ import { setScreen, } from '../../redux/actions/screenActions';
 import List from '../screens/list';
 import Table from '../screens/table';
 import Gallery from '../screens/gallery';
+// 
 
 const content = () => {
    // redux
@@ -18,10 +17,7 @@ const content = () => {
    const pokemonlist = useSelector( state =>state.pokemonReducer.pokemons );
   useEffect( async () => {
     try {
-      getPokemons();
-      let response =await axiosPokemon.get( `/${ pokemon }` );
-      console.log( 'response : ', response );
-      
+      getPokemons(); 
     } catch (error) {
       console.log( 'error : ', error );
       
