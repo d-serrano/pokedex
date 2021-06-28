@@ -12,7 +12,7 @@ import {
 // styles
 import styles from '../../styles/screens.module.scss'
 
-export default function gallery({ pokemonList, getPokemon  }) {
+export default function Gallery({ pokemonList, getPokemon  }) {
   return (
     <Grid fixed xs = {12} container className =  { styles.gallery }>
     

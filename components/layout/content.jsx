@@ -5,12 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getListPokemonsAction, getsinglePokemon } from '../../redux/actions/pokemonActions';
 import { setScreen, } from '../../redux/actions/screenActions';
 // componets
-import List from '../screens/list';
-import Table from '../screens/table';
-import Gallery from '../screens/gallery';
+import List from '../screens/List';
+import PokeTable from '../screens/table';
+import Gallery from '../screens/Gallery';
 // 
 
-const content = () => {
+const Content = () => {
    // redux
    const dispatch = useDispatch();
    const screen = useSelector( state =>state.screenReducer.screen );
@@ -52,7 +52,7 @@ const content = () => {
         /> : null
       }
       {
-        screen === 'table'? <Table 
+        screen === 'table'? <PokeTable 
           pokemonList = {pokemonlist}
           getPokemon = { getPokemon }
         /> : null
@@ -67,4 +67,4 @@ const content = () => {
   );
 };
 
-export default content;
+export default Content;

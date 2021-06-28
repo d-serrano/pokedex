@@ -10,7 +10,7 @@ import {
   Paper , 
   Avatar
   } from '@material-ui/core';
-export default function table({ pokemonList, getPokemon }) {
+export default function PokeTable({ pokemonList, getPokemon }) {
   
   return (
     <TableContainer component = {Paper}>
