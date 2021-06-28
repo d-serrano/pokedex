@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getListPokemonsAction, getsinglePokemon } from '../../redux/actions/pokemonActions';
 import { setScreen, } from '../../redux/actions/screenActions';
 // componets
-import List from '../screens/List';
+import List from '../screens/list';
 import PokeTable from '../screens/table';
-import Gallery from '../screens/Gallery';
+import Gallery from '../screens/gallery';
 // 
 
 const Content = () => {

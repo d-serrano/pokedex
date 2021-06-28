@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 // styles
 import styles from '../../styles/pokemon.module.scss'
 //Material UI
-import { Card, Container } from '@material-ui/core';
+import { Card, Container, FilledInput } from '@material-ui/core';
 //
 import Image  from 'next/image'
 export default function pokemon({ focusPokemon }) {
@@ -17,7 +17,7 @@ export default function pokemon({ focusPokemon }) {
           src={ hires } 
           alt="pokemon" 
           width = { 200 }
-          height = { 200 }
+          height = { 300 }
          />
         <h3>{ english }</h3>
         <p>{ description }</p>
