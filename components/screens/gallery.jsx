@@ -10,12 +10,40 @@ import {
   Grid
   } from '@material-ui/core';
 // styles
-import styles from '../../styles/screens.module.scss'
 import styled from 'styled-components';
+
+const StyledCard = styled(Card)`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+  width: 10rem;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 1rem 2rem 1rem;
+  img {
+    width: 50%;
+  }
+
+  .card {
+    background-color: blue;
+  }
+`;  
+
+const StyledPokemonImage = styled.div`
+ 
+ width: 50% !important;
+ aspect-ratio: 1 / 1;
+  div{
+    position: relative !important;
+    width: 100%;
+   aspect-ratio: 1 / 1;
+  }
+`;
 
 export default function Gallery({ pokemonList, getPokemon  }) {
   return (
-    <Grid fixed xs = {12} container className =  { styles.gallery }>
+    <Grid fixed xs = {12} container >
     
         {
          pokemonList.map( pokemon => (
@@ -41,21 +69,22 @@ const PokemonCard = ({ pokemon, getPokemon } ) => {
   const { english } = name;
 
   return (
-    <Grid container xs ={ 3 } className = {styles.card} >
-      <Paper>
-        <Card  onMouseOver= { () => getPokemon( id ) }  >
-        <Image 
-          src={ thumbnail }
-          alt="pokemon" 
-          width = { 100 }
-          height = { 100 }
-        />
-          <CardContent className = 'content'>
-            <h3> {english} </h3>
-              <p>{ species }</p>
-          </CardContent>
-        </Card>
-      </Paper>
+    <Grid container xs ={ 3 } className = 'card' >
+      <StyledCard  onMouseOver= { () => getPokemon( id ) }  >
+        <StyledPokemonImage>
+          <Image 
+            src={ thumbnail }
+            alt="pokemon" 
+            layout = 'fill'
+            objectFit ='contain'
+          />
+        </StyledPokemonImage>
+        <CardContent className = 'content'>
+          <h3> {english} </h3>
+            <p>{ species }</p>
+        </CardContent>
+      </StyledCard>
+     
     </Grid>
       
    );

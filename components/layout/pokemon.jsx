@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react'
-// styles
-import styles from '../../styles/pokemon.module.scss'
 //Material UI
 import { Card, Container, FilledInput, Grid } from '@material-ui/core';
 import Image  from 'next/image'
@@ -12,14 +10,7 @@ const StyledPokemon = styled(Grid)`
   height: 100px;
   position: sticky;
   top: 20px;
-  #pokemon-img{
 
-    width: 50% !important;
-    div{
-    position: relative !important;
-     aspect-ratio: 1 / 1;
-    }
-  }
   h3{
     font-size: 2rem;
   }
@@ -28,9 +19,12 @@ const StyledPokemon = styled(Grid)`
   }
   `;
 
-const StyledPokemonImage = styled(Image)`
- 
-  aspect-ratio: 1 / 1;
+const StyledPokemonImage = styled(Grid)`
+ width: 50% !important;
+  div{
+    position: relative !important;
+   aspect-ratio: 1 / 1;
+  }
 `;
 
 export default function pokemon({ focusPokemon }) {
@@ -41,14 +35,14 @@ export default function pokemon({ focusPokemon }) {
 
   return (
     <StyledPokemon container  justify = 'center' >
-      <Grid id = 'pokemon-img' xs = {12}>
-        <StyledPokemonImage
+      <StyledPokemonImage  xs = {12}>
+        <Image
           src={ hires } 
           alt="pokemon" 
           layout ='fill'
           objectFit ='contain'
          />
-      </Grid>
+      </StyledPokemonImage>
       <h3>{ english }</h3>
       <p>{ description }</p>
       <Grid container>
