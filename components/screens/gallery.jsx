@@ -11,6 +11,7 @@ import {
   } from '@material-ui/core';
 // styles
 import styles from '../../styles/screens.module.scss'
+import styled from 'styled-components';
 
 export default function Gallery({ pokemonList, getPokemon  }) {
   return (

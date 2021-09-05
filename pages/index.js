@@ -13,10 +13,7 @@ export default function Home() {
   return (
     
       <Grid container >
-        {/* ******  header  ******* */}
-        <Grid container item xs = { 12 } justify = 'center'>
-          <Header/>
-        </Grid>
+        <Header/>
         {/* ******  Content  ******* */}
         <Grid container item xs = { 12 } justify = 'space-around'>
           {/* ******  Pokemons List  ******* */}

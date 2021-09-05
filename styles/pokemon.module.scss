@@ -1,22 +1,5 @@
 
 .pokemon {
   
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  
-  position: -webkit-sticky;
-  position: sticky;
-  top: 20px;
-  img{
-    width: 50%;
-    padding: 0;
-  }
-  h3{
-    font-size: 2rem;
-  }
-  .types {
-    display: flex ;
-    justify-content: space-around;
-  }
+ 
 }

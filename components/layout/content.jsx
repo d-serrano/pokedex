@@ -3,7 +3,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 // actions
 import { getListPokemonsAction, getsinglePokemon } from '../../redux/actions/pokemonActions';
-import { setScreen, } from '../../redux/actions/screenActions';
 // componets
 import List from '../screens/list';
 import PokeTable from '../screens/table';
@@ -34,17 +33,10 @@ const Content = () => {
   const getPokemon = async ( id ) => {
     dispatch( getsinglePokemon( id ) );
   }
-  // set as list, gallery or table
-  const setNewScreen = ( newScreen ) => {
-    dispatch( setScreen( newScreen ) );
-  }
+
   return (
     <div>
-      <div>
-        <button onClick = { () => setNewScreen( 'list' ) }>List</button>
-        <button onClick = { () => setNewScreen( 'table' ) }>Table</button>
-        <button onClick = { () => setNewScreen( 'gallery' ) }>Gallery</button>
-      </div>
+
       {
         screen === 'list'? <List  
           pokemonList = {pokemonlist} 
