@@ -31,6 +31,7 @@ const pokemoReducer =  ( state = initialState, action) =>{
         pokemons : payload
       }
     case GET_LIST_POKEMON_ERROR:
+      console.log( {payload} )
       return{
         ...state,
         listError : error
