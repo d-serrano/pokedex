@@ -1,6 +1,6 @@
 import React from 'react'
 // componentes
-import ViewButtons from '../ViewButtons';
+import ViewButtons from './ui/ViewButtons';
 // styles
 import styled from 'styled-components'
 
