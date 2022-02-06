@@ -1,9 +1,7 @@
 import '../styles/globals.css'
-import { Provider } from 'react-redux';
-import store from '../redux/store'
-import Header from '../components/layout/header';
 // styles
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import {RecoilRoot} from 'recoil'
 const GlobalStyle = createGlobalStyle`
   html{
     background-color: #282C34;
@@ -32,12 +30,13 @@ const theme = {
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Provider store={store}>
+    <RecoilRoot>
       <GlobalStyle/>
       <ThemeProvider theme = { theme }>
         <Component {...pageProps} />
       </ThemeProvider>
-    </Provider>
+    </RecoilRoot>
+   
   )
 }
 
