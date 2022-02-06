@@ -1,6 +1,6 @@
 import React from 'react'
 import Image  from 'next/image'
-import Card from '../components/gallery/Card';
+import Card from '../components/gallery/card';
 // styles
 import styled from 'styled-components';
 
