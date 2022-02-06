@@ -1,9 +1,9 @@
 import React from 'react';
-//redux
+import { useSetRecoilState } from 'recoil';
 
-// material ui
 // styles
 import styled from 'styled-components';
+import { viewAtom } from '../../config/atoms';
 
 const StyledButton = styled.button`
 width: 5rem;
@@ -20,16 +20,16 @@ width: 5rem;
 `;
 
 const ViewButtons = () => {
-
+  const setView = useSetRecoilState(viewAtom);
   // set as list, gallery or table
   const setNewScreen = ( newScreen ) => {
     //dispatch( setScreen( newScreen ) );
   }
   return ( 
     <div>
-      <StyledButton onClick = { () => setNewScreen( 'list' ) }>List</StyledButton>
-      <StyledButton onClick = { () => setNewScreen( 'table' ) }>Table</StyledButton>
-      <StyledButton onClick = { () => setNewScreen( 'gallery' ) }>Gallery</StyledButton>
+      <StyledButton onClick = { () => setView( 'list' ) }>List</StyledButton>
+      <StyledButton onClick = { () => setView( 'table' ) }>Table</StyledButton>
+      <StyledButton onClick = { () => setView( 'gallery' ) }>Gallery</StyledButton>
     </div>
    );
 }

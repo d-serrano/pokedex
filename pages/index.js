@@ -10,45 +10,46 @@ import Gallery from '../views/gallery';
 
 //styles
 import styled from 'styled-components';
+import { useRecoilValue } from 'recoil';
+import { pokemonAtom, viewAtom } from '../config/atoms';
+import useGetPokemons from '../hooks/useGetPokemons';
+import { useEffect } from 'react';
 
 const StyledContent = styled.div`
   padding: 2rem 4rem 0rem 4rem;
 `;
 
 export default function Home() {
-  
-  
- 
-  // get Pokemons from APi
-  const getPokemons = async () => {
-    dispatch( getListPokemonsAction() );
-  }
-  // get Pokemon from list
-  const getPokemon = async ( id ) => {
-   
-  }
+  const [getPokemons,pokemonList, loading, error] = useGetPokemons(0,151);
+  const view = useRecoilValue(viewAtom);
+  const pokemon = useRecoilValue(pokemonAtom);
+  useEffect( async ()=>{
+    await getPokemons();
+  },[])
   return (
-    
+      <>
+      { !loading && !error &&
         <Layout>
           {
-        screen === 'list'? <List  
-          pokemonList = {pokemonlist} 
-          getPokemon = { getPokemon }
-        /> : null
+          view === 'list'? <List  
+            pokemonList = {pokemonList} 
+          /> : null
+        }
+        {
+          view === 'table'? <PokeTable 
+            pokemonList = {pokemonList}
+            //getPokemon = { getPokemon }
+          /> : null
+        }
+        {
+          view === 'gallery'? <Gallery  
+            pokemonList = {pokemonList}
+            //getPokemon = { getPokemon }
+          /> : null
+        }
+          </Layout>
       }
-      {
-        screen === 'table'? <PokeTable 
-          pokemonList = {pokemonlist}
-          getPokemon = { getPokemon }
-        /> : null
-      }
-      {
-        screen === 'gallery'? <Gallery  
-          pokemonList = {pokemonlist}
-          getPokemon = { getPokemon }
-        /> : null
-      }
-        </Layout>
+      </>
      
   )
 }
