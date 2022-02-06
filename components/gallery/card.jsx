@@ -4,6 +4,8 @@ import useSetPokemonState from "../../hooks/useSetPokemonState";
 import styled from "styled-components";
 import Image from 'next/image'
 import PokemonTypes from '../ui/pokemonTypes'
+import { device } from "../../styles/mediaQueries";
+
 const StyledCard = styled.section`
   display:flex;
   flex-direction:column;
@@ -13,16 +15,27 @@ const StyledCard = styled.section`
   border-radius : 8px;
   background-color: ${props=>props.theme['background-light']};
   max-height: 300px;
+
+  @media ${device.mobile} { 
+    padding: 4px;
+    h3{
+      font-size:0.5rem;
+    }
+  }
 `;
 
 const StyledPokemonImage = styled.div`
   position: relative ;
-  width: 4rem;
+  width:100%;
+  max-width: 4rem;
   aspect-ratio: 1 / 1;
   div{
     width:120%;
     height:120%;
     
+  }
+  @media ${device.mobile} { 
+    width: 2rem;
   }
 `;
 

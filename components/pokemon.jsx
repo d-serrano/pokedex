@@ -5,6 +5,7 @@ import {pokemonAtom} from '../config/atoms';
 //styles
 import styled from 'styled-components';
 import PokemonTypes from './ui/pokemonTypes';
+import { device } from '../styles/mediaQueries';
 
 const StyledPokemon = styled.section`
 position: sticky;
@@ -19,11 +20,27 @@ div{
 
   border-radius:8px;
   padding: 2rem 0.5rem 1rem 0.5rem;
-    h3{
+    h1{
       font-size: 2rem;
     }
     div{
       width:100%;
+    }
+  }
+
+  @media ${device.mobile} { 
+    max-width: 150px;
+    padding: 4px;
+    div{
+      width:100%;
+      margin:0;
+    }
+    div{
+      padding: 4px;
+      h1{
+      font-size: 1rem;
+      margin:0;
+    }
     }
   }
   `;
@@ -31,9 +48,13 @@ div{
 const StyledPokemonImage = styled.div`
   position: relative ;
   aspect-ratio: 1 / 1;
-  width: 100%;
-  min-height:10rem;
+  
   max-height:15rem;
+  @media ${device.mobile} { 
+    width: 80%;
+    padding: 4px;
+  }
+ 
 `;
 export default function Pokemon() {
   
@@ -60,7 +81,9 @@ export default function Pokemon() {
                 />
             </StyledPokemonImage>
             <div>
-                <h1>{pokemon.name}</h1>
+                <h1>{pokemon.name} 
+                  { <span></span>}
+                </h1>
                 <PokemonTypes types = {types}/>
             </div>
           </div>
