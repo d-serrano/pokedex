@@ -4,10 +4,11 @@ import Card from '../components/gallery/card';
 // styles
 import styled from 'styled-components';
 
-const StyledGallery = styled.div`
+const StyledGallery = styled.section`
   display:grid;
   grid-template-columns: repeat(4,1fr);
   gap: 0.5rem 1rem;
+  
 `;
 export default function Gallery({ pokemonList }) {
   return (

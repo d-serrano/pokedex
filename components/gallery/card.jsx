@@ -7,17 +7,23 @@ import PokemonTypes from '../ui/pokemonTypes'
 const StyledCard = styled.section`
   display:flex;
   flex-direction:column;
-  padding: 1rem;
-  border-radius : 0.5rem;
-  background-color: ${props=>props.theme['text-color-secondary']};
+  align-items:center;
+  cursor:pointer;
+  padding: 0.5rem;
+  border-radius : 8px;
+  background-color: ${props=>props.theme['background-light']};
   max-height: 300px;
 `;
 
 const StyledPokemonImage = styled.div`
   position: relative ;
+  width: 4rem;
   aspect-ratio: 1 / 1;
-  width: 100%;
-  min-height:10rem;
+  div{
+    width:120%;
+    height:120%;
+    
+  }
 `;
 
 const Card = ({ pokemon }) => {
@@ -36,9 +42,7 @@ const Card = ({ pokemon }) => {
           />
         </StyledPokemonImage>
         <div className = 'content'>
-          <h3> {name} </h3>
-            <PokemonTypes types = {types}/>
-            
+          <h3> {name} </h3>   
         </div>  
     </StyledCard>
   );

@@ -23,9 +23,12 @@ export default function Home() {
   const [getPokemons,pokemonList, loading, error] = useGetPokemons(0,151);
   const view = useRecoilValue(viewAtom);
   const pokemon = useRecoilValue(pokemonAtom);
-  useEffect( async ()=>{
-    await getPokemons();
-  },[])
+  useEffect( ()=>{
+    const request = async ()=>{
+      await getPokemons();
+    }
+    request();
+  },[]);
   return (
       <>
       { !loading && !error &&

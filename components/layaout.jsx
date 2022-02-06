@@ -9,6 +9,7 @@ const StyledLayout = styled.main`
   display:grid;
   grid-template-columns: 2fr 1fr;
   padding: 2rem 4rem 2rem 4rem;
+  gap:20px;
 `;
 
 const Layout = ({children}) => {
